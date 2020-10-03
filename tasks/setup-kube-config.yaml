@@ -1,0 +1,10 @@
+---
+
+#***kubeconfig file setup | make sure you changed the installation user
+
+- name: Setup kubeconfig for installation user
+  command: "{{ item }}"
+  with_items:
+   - mkdir -p /root/.kube
+   - cp -i /etc/kubernetes/admin.conf /root/.kube/config
+   - chown root:root /root/.kube/config

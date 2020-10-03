@@ -1,0 +1,8 @@
+---
+
+#***Initializing kubernetes cluster - Enter master node IP below 2 times
+
+
+- name: Initialize the Kubernetes cluster using kubeadm
+  command: kubeadm init --apiserver-advertise-address 192.168.56.10 --pod-network-cidr=10.244.0.0/16
+

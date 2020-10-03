@@ -1,0 +1,18 @@
+---
+# defaults file for kubernetes-cluster
+
+install_docker: True
+
+disabling_swap: True
+
+install_kube_pkg: True
+
+initialize_kubernetes: False
+
+Setup_kube_config: False
+
+setup_container_networking: False
+
+generate_kube_join_command: False
+
+

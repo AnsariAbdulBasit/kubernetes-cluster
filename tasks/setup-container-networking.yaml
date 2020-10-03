@@ -1,0 +1,8 @@
+---
+
+#***Setup the container networking here we are using flannel | In order to change network add-on make changes in below command and initialize-kubernetes-cluster.yaml file --pod-network-cidr=???
+
+- name: Install flannel pod network
+  become: false
+  command: kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+

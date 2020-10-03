@@ -1,0 +1,31 @@
+---
+#kubernetes cluster implementation steps
+
+- name:  Install Docker and its dependent components
+  include: tasks/installing-docker.yaml
+  when: install_docker == True
+
+- name: disabling swap
+  include: tasks/disabling-swap.yaml
+  when: disabling_swap == True
+
+- name: Installing kubelet, kubeadm and kubectl 
+  include: tasks/Installing-kube-packages.yaml
+  when: install_kube_pkg == True
+
+- name: Initialize the Kubernetes cluster
+  include: tasks/initialize-kubernetes-cluster.yaml
+  when: initialize_kubernetes == True
+
+- name: Setup the kube config
+  include: tasks/setup-kube-config.yaml
+  when:  Setup_kube_config == True
+
+- name:  Setup the container networking provider
+  include: tasks/setup-container-networking.yaml
+  when:  setup_container_networking == True
+
+- name: Generate kube join command
+  include: tasks/generate-kube-join-command.yaml
+  when: generate_kube_join_command == True
+
