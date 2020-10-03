@@ -1,22 +1,46 @@
 Role Name
 =========
 
-This role is to deploy kubernetes cluster on master and worker nodes with Ubuntu server (Tested on Ubuntu 16.04 LTS)
+This role is to deploy kubernetes cluster on master and worker nodes with Ubuntu server (Tested on Ubuntu 16.04 LTS) using Ansible version 2.9.10
 
 Requirements
 ------------
+Ansible:  2.9.10
 
+OS: Ubuntu 16.04 LTS
+
+
+Master node setup: Follwoing two steps are required before deploying role for master nodes
+
+	Step1: Cluster Installation User: (Default installation user is root) | to change default user run below commands after downloading roles and replace your user_name in below command, make usre to add sudo user
+			    		sed -i s/root/user_name/g /etc/ansible/roles/kubernetes-cluster/tasks/*
+
+	Step2:Setting IP for kubernetes master node:
+   
+				sed -i s/192.168.56.10/master_node_IP/g  /etc/ansible/roles/kubernetes-cluster/tasks/initialize-kubernetes-cluster.yaml
+
+
+Worker node setup: Variables changes required for worker node setup mentioned below in Role Variables section
 
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Same role can be used to deploy worker node by disaling below steps in defaults/main.yml
+
+Worker node setup: Edit defaults/main.yml file and false below variables
+
+			vi /etc/ansible/roles/kubernetes-cluster/defaults/main.yml
+			   initialize_kubernetes: False
+			   Setup_kube_config: False
+			   setup_container_networking: False
+			   generate_kube_join_command: False
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No other role Dependencies
 
 Example Playbook
 ----------------
