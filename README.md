@@ -5,7 +5,7 @@ This role is to deploy kubernetes cluster on master/worker nodes with Ubuntu ser
 
 For master node deployment : Changes of IP address explained in Requirements section
 
-For worker node deployment : Variables changes only explaind in Role Variables section
+For worker node deployment : Variables changes explaind in Role Variables section
 
 Requirements
 ------------
