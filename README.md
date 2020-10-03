@@ -53,9 +53,11 @@ No other role Dependencies
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Downloading the role from ansible galaxy
 
-Playbook.yaml
+	ansible-galaxy install ansariabdulbasit.kubernetes_cluste
+
+Creating Playbook.yaml file
 
 	---
 	- hosts: target1
@@ -63,7 +65,7 @@ Playbook.yaml
 	  roles:
 	      - kubernetes-cluster
 
-Inventory.yaml
+Creating Inventory.yaml file with master/worker hosts
 
 	target1 ansible_host=192.168.56.10 ansible_ssh_pass=PASSWORD
 
