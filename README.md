@@ -4,6 +4,7 @@ Role Name
 This role is to deploy kubernetes cluster on master/worker nodes with Ubuntu server (Tested on Ubuntu 16.04 LTS) using Ansible version 2.9.10
 
 For master node deployment : Changes of IP address explained in Requirements section
+
 For worker node deployment : Variables changes only explaind in Role Variables section
 
 Requirements
