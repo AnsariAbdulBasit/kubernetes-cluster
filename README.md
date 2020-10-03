@@ -1,7 +1,10 @@
 Role Name
 =========
 
-This role is to deploy kubernetes cluster on master and worker nodes with Ubuntu server (Tested on Ubuntu 16.04 LTS) using Ansible version 2.9.10
+This role is to deploy kubernetes cluster on master/worker nodes with Ubuntu server (Tested on Ubuntu 16.04 LTS) using Ansible version 2.9.10
+
+For master node deployment : Changes of IP address explained in Requirements section
+For worker node deployment : Variables changes only explaind in Role Variables section
 
 Requirements
 ------------
@@ -10,15 +13,17 @@ Ansible:  2.9.10
 OS: Ubuntu 16.04 LTS
 
 
-Master node setup: Follwoing two steps are required before deploying role for master nodes
+Master node setup: Master node server IP needs to change using below step and installation user (optional)
 
-Step1: Cluster Installation User: (Default installation user is root) | to change default user run below commands after downloading roles and replace your user_name in below command, make usre to add sudo user
 
-	sed -i s/root/user_name/g /etc/ansible/roles/kubernetes-cluster/tasks/*
 
-Step2:Setting IP for kubernetes master node:
+Setting IP for kubernetes master node:
    
 	sed -i s/192.168.56.10/master_node_IP/g  /etc/ansible/roles/kubernetes-cluster/tasks/initialize-kubernetes-cluster.yaml
+
+Optional: Changing Cluster Installation User: (Default installation user is root) | to change default user run below commands after downloading roles and replace your user_name in below command, make usre to add sudo user
+
+        sed -i s/root/user_name/g /etc/ansible/roles/kubernetes-cluster/tasks/*
 
 
 Worker node setup: Variables changes required for worker node setup mentioned below in Role Variables section
