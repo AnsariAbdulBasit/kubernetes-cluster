@@ -22,7 +22,7 @@ Setting IP for kubernetes master node:
    
 	sed -i s/192.168.56.10/master_node_IP/g  /etc/ansible/roles/kubernetes-cluster/tasks/initialize-kubernetes-cluster.yaml
 
-Optional: Changing Cluster Installation User: (Default installation user is root) | to change default user run below commands after downloading roles and replace your user_name in below command, make usre to add sudo user
+Optional: Changing Cluster Installation User: (Default installation user is root) | to change default user run below commands after downloading roles and replace your user_name in below command, make sure to add sudo user only.
 
         sed -i s/root/user_name/g /etc/ansible/roles/kubernetes-cluster/tasks/*
 
