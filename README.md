@@ -55,7 +55,7 @@ Example Playbook
 
 Downloading the role from ansible galaxy
 
-	ansible-galaxy install ansariabdulbasit.kubernetes_cluste
+	ansible-galaxy install ansariabdulbasit.kubernetes_cluster
 
 Creating Playbook.yaml file
 
